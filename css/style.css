@@ -5,6 +5,9 @@
     box-sizing: border-box;
 }
 
+img{
+    max-width: 100%;
+}
 /* COMMON */
 .white{
     color: white
@@ -18,13 +21,39 @@
     align-items: center;
 }
 
-h1{
-    text-align: right;
-    
+h1, p{
+    text-align: right;   
 }
 
+
 .bg-image{
-    height: calc(70%);
-    width: calc(80%);
+    height: calc(80%);
+    width: calc(70%);
     background-image: url(../img/01.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.slider-container{
+    height: calc(100% / 4);
+    width: 100%;
+
+}
+
+.slider-container img{
+    width: calc(100% / 5.08) ;
+    height: 100%;
+
+}
+
+.p-relative{
+    position: relative;
+}
+
+.p-absolute{
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
