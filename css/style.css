@@ -1,115 +1,99 @@
-/* RESET */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-img{
-    max-width: 100%;
-}
-/* COMMON */
-.white{
-    color: white
-}
-
-.container{
-    width: 1400px;
-    height: 100vh;
+div.my-carousel-container{
+    min-height: 700px;
+    min-width: 800px;
+    max-width: 1350px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
 }
 
-h1, p{
-    text-align: right;   
+div.my-carousel-images{
+    height: 540px;
+    border: 1px solid;
 }
 
-
-.items{
-    width: 1000px;
-    height: 600px;
+div.my-thumbnails{
+    height: 160px;
+    border: 1px solid;
 }
 
-.item{
-    height: 100%;
-    display: none;
-    position: relative;
-}
-
-.item img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.item.active{
-    display: block;
-}
-
-.thumbs{
-    height: 300px;
-    background-color: #000;
-    position: relative;
-}
-
-.thumb{
-    width: calc((300px) / 5);
-    opacity: 0.5;
-}
-
-.thumb img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.thumb.active{
-    border: 2px solid #ccc;
-    opacity: 1;
-}
-
-.prev, .next{
-    width: 20px;
-    height: 20px;
+div.my-previous,
+div.my-next{
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
-    margin: 10px 0;
-    background-color: #ccc;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
+    padding: 5px;
+    background-color: rgba(255, 255, 255, .5);
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50);
     cursor: pointer;
-    z-index: 999;
 }
 
-.next{
-    bottom: 0;
+div.my-previous{
+    left: 1rem;
 }
 
-.prev::after{
-    content: ``;
-    width: 10px;
-    height: 10px;
-    transform: rotate(45deg);
-    border-top: 1px solid black;
-    border-right: 1px solid black;
+div.my-next{
+    right: 1rem;
+}
+
+div.my-previous > span::after{
+    line-height: 30px;
+}
+
+div.my-next > span::after{
+    line-height: 30px;
+}
+
+div.my-carousel-item{
+    display: none;
+}
+
+div.my-carousel-item.active{
     display: block;
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%) rotate(-45deg);
 }
 
-.next::before{
-    content: ``;
-    width: 10px;
-    height: 10px;
-    transform: rotate(45deg);
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-    display: block;
+div.my-carousel-item{
+    height: 100%;
+    position: relative;
+    display: none;
+}
+
+div.my-carousel-item img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+div.item-description{
     position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%) rotate(135deg);
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    text-align: end;
+    text-shadow: 2px 2px 2px black;
+}
+
+div#my-carousel .my-thumbnails{
+    flex-basis: 20%;
+    height: 100%;
+    display: flex;
+    overflow-x: auto;
+    position: relative;
+}
+
+div#my-carousel .my-thumbnails .my-thumbnail{
+    height: 160px;
+    width: calc(100% / 5);
+    filter: brightness(.4);
+}
+
+div#my-carousel .my-thumbnails .my-thumbnail img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+div#my-carousel .my-thumbnails .my-thumbnail.active{
+    filter: brightness(1);
+    border: 3px rgb(197, 197, 197) solid;
 }
